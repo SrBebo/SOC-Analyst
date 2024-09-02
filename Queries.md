@@ -53,3 +53,13 @@ SecurityEvent
 | where TimeGenerated > ago(1h) and EventID == 4688  
 | summarize count() by Process, Computer
 ``` 
+
+- Cuenta bloqueada
+```bash
+SecurityEvent
+| where TimeGenerated > ago(20d)
+| where EventID == "4625"
+| where TargetUserName contains "username"
+| summarize by TimeGenerated, Activity, TargetUserName, SubjectUserName, TargetDomainName, Computer
+| sort by TimeGenerated
+``` 
