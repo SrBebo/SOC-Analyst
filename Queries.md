@@ -58,7 +58,7 @@ SecurityEvent
 ```bash
 SecurityEvent
 | where TimeGenerated > ago(20d)
-| where EventID == "4625"
+| where EventID == "4740"
 | where TargetUserName contains "username"
 | summarize by TimeGenerated, Activity, TargetUserName, SubjectUserName, TargetDomainName, Computer
 | sort by TimeGenerated
